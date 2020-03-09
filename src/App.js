@@ -1,15 +1,18 @@
 import React from "react";
 import Today from "./Today";
+import ToDoTemplate from "./ToDoTemplate";
 
 function App() {
   return (
-    <section>
+    <div className="page-container">
       <header className="page-header">
         <h1>My Day</h1>
         <Today />
       </header>
-      <h2>To Do List</h2>
-    </section>
+      <div className="toDoList">
+        <ToDoTemplate />
+      </div>
+    </div>
   );
 }
 
