@@ -16,7 +16,7 @@ class ToDoTemplate extends React.Component {
   // List의 Items를 지우거나 추가할 때 LocalStorage와 State를 변경해주기위한 함수
   saveToDos = () => {
     localStorage.setItem("toDoList", JSON.stringify(this.toDoList));
-    this.setState({ ToDoItems: this.toDoList });
+    this.setState({ todoItems: this.toDoList });
   };
 
   // form에서 toDoItem을 입력 후 제출하는 이벤트에 대한 함수
@@ -46,7 +46,13 @@ class ToDoTemplate extends React.Component {
     todoInput.value = "";
   };
 
-  itemRemove = id => {};
+  itemRemove = id => {
+    const cleanToDoList = this.toDoList.filter(function(toDo) {
+      return toDo.id !== id;
+    });
+    this.toDoList = cleanToDoList;
+    this.saveToDos();
+  };
 
   itemCheck = id => {};
 
@@ -68,7 +74,15 @@ class ToDoTemplate extends React.Component {
         </form>
         <div className="template-list">
           {todoItems.map(item => {
-            return <ToDoItem text={item.text} />;
+            return (
+              <ToDoItem
+                id={item.id}
+                text={item.text}
+                checked={item.checked}
+                writeDate={item.writeDate}
+                itemRemove={this.itemRemove}
+              />
+            );
           })}
         </div>
       </div>
