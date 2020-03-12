@@ -18,7 +18,7 @@ class Today extends React.Component {
   render() {
     const year = this.state.date.getFullYear();
     const month = this.state.date.getMonth() + 1;
-    const day = this.state.date.getDay() + 1;
+    const day = this.state.date.getDate();
     const hour = this.state.date.getHours();
     const minute = this.state.date.getMinutes();
     const second = this.state.date.getSeconds();
