@@ -1,0 +1,24 @@
+.item-container {
+  width: 100%;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.item-remove {
+  width: 10%;
+  color: red;
+}
+
+.item-text {
+  width: 80%;
+}
+
+.item-check {
+  width: 10%;
+  color: cadetblue;
+  text-align: end;
+}

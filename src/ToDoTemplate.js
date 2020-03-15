@@ -1,5 +1,6 @@
 import React from "react";
 import ToDoItem from "./ToDoItem";
+import "./ToDoTemplate.css";
 
 class ToDoTemplate extends React.Component {
   toDoList = [];
@@ -70,7 +71,12 @@ class ToDoTemplate extends React.Component {
     return (
       <div className="template-Container">
         <form className="template-Form">
-          <input type="text" placeholder="오늘의 할일" />
+          <input
+            type="text"
+            placeholder="오늘의 할일"
+            onFocus={e => (e.target.placeholder = "")}
+            onBlur={e => (e.target.placeholder = "오늘의 할일")}
+          />
         </form>
         <div className="template-list">
           {todoItems.map(item => {

@@ -1,0 +1,42 @@
+.template-Container {
+  padding: 1em;
+  position: fixed;
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.template-Form {
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-left: 1em;
+  padding-bottom: 2em;
+  width: 100%;
+  height: 5em;
+  border: none;
+}
+
+.template-Form input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  border-bottom-style: groove;
+  text-align: center;
+}
+
+.template-Form input::placeholder {
+  font-size: 2em;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.template-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
