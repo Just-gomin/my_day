@@ -26,11 +26,25 @@ class ToDoTemplate extends React.Component {
       todoForm = todoTemplate.querySelector(".template-Form"),
       todoInput = todoForm.querySelector("input");
 
-    const date = new Date(),
-      dateCode =
-        date.getFullYear() + "." + (date.getMonth() + 1) + "." + date.getDate();
-    const newID =
-      date.getHours() + "" + date.getMinutes() + "" + date.getSeconds();
+    const date = new Date();
+
+    const year = date.getFullYear(),
+      month =
+        date.getMonth() + 1 < 10 ? "0" + date.getMonth() : date.getMonth(),
+      day = date.getDate() + 1 < 10 ? "0" + date.getDate() : date.getDate(),
+      hours =
+        date.getHours() + 1 < 10 ? "0" + date.getHours() : date.getHours(),
+      minutes =
+        date.getMinutes() + 1 < 10
+          ? "0" + date.getMinutes()
+          : date.getMinutes(),
+      seconds =
+        date.getSeconds() + 1 < 10
+          ? "0" + date.getSeconds()
+          : date.getSeconds();
+
+    const dateCode = year + "." + month + "." + day;
+    const newID = hours + "" + minutes + "" + seconds;
 
     const toDoObj = {
       id: newID,
@@ -41,10 +55,10 @@ class ToDoTemplate extends React.Component {
 
     this.toDoList.push(toDoObj);
 
-    this.saveToDos();
-
     event.preventDefault();
     todoInput.value = "";
+
+    this.saveToDos();
   };
 
   itemRemove = id => {
@@ -55,7 +69,14 @@ class ToDoTemplate extends React.Component {
     this.saveToDos();
   };
 
-  itemCheck = id => {};
+  itemCheck = id => {
+    this.toDoList.forEach(toDo => {
+      if (toDo.id === id) {
+        toDo.checked = !toDo.checked;
+      }
+    });
+    this.saveToDos();
+  };
 
   // render가 진행된 뒤에 eventListner를 추가
   componentDidMount() {
@@ -67,15 +88,16 @@ class ToDoTemplate extends React.Component {
 
   render() {
     const { todoItems } = this.state;
+    const inputPlaceholder = "오늘의 할일";
 
     return (
       <div className="template-Container">
         <form className="template-Form">
           <input
             type="text"
-            placeholder="오늘의 할일"
+            placeholder={inputPlaceholder}
             onFocus={e => (e.target.placeholder = "")}
-            onBlur={e => (e.target.placeholder = "오늘의 할일")}
+            onBlur={e => (e.target.placeholder = inputPlaceholder)}
           />
         </form>
         <div className="template-list">
@@ -87,6 +109,8 @@ class ToDoTemplate extends React.Component {
                 checked={item.checked}
                 writeDate={item.writeDate}
                 itemRemove={this.itemRemove}
+                itemCheck={this.itemCheck}
+                key={item.id}
               />
             );
           })}
