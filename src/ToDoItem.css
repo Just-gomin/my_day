@@ -1,24 +1,36 @@
 .item-container {
-  width: 100%;
+  width: inherit;
   padding-top: 0.5em;
   padding-left: 1em;
   padding-right: 1em;
   padding-bottom: 0.5em;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  background-color: rgba(255, 255, 255, 1);
+  align-items: center;
+  background-color: rgb(202, 209, 209);
   margin-bottom: 0.5em;
   border-radius: 0.5em;
 }
 
+.item-container:hover {
+  background-color: white;
+}
+
+.item-container:hover .item-remove,
+.item-container:hover .item-check {
+  opacity: 1;
+}
+
 .item-remove {
-  width: 10%;
+  display: inline-flex;
+  opacity: 0;
   color: red;
+  margin-right: 1em;
 }
 
 .item-text {
-  width: 80%;
+  flex: 1;
+  word-break: break-all;
 }
 
 .checked {
@@ -27,7 +39,8 @@
 }
 
 .item-check {
-  width: 10%;
+  display: inline-flex;
+  opacity: 0;
   color: cadetblue;
-  text-align: end;
+  margin-left: 1em;
 }

@@ -33,5 +33,6 @@
 3) **ToDoItem events**
 
    1. _onmouseenter_ & _onmouseleave_ : 아이템에 마우스를 올렸을 때 background Color 바뀌게 할 것
+      => hover라는 CSS의사 클래스가 존재 hover를 사용해볼 것
 
    ~~2. _Check Button_ : 완료된 할 일에 대해서 클릭 한 경우 글씨색 회색 및 가운데 줄 긋기, 완료된 할 일을 한 번 더 누르면 다시 기존 상태로 되돌릴 것~~
