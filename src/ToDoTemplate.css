@@ -1,8 +1,10 @@
 .template-Container {
-  padding: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 2.5em;
   position: fixed;
   width: inherit;
-  height: inherit;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,4 +41,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
 }
